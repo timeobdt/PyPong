@@ -12,6 +12,6 @@ to play you will need to install pygame :
 "python3 -m pip install pygame" in your terminal
 ![image](https://github.com/timeobdt/PyPong/assets/136178363/18f3df13-098f-493f-9703-f84739f1779a)
 
-the player 1 (left bar) can moove with key Q and Y (A and W on AZERTY) and the player 2 can woove with the up arrow and down arrow key.
+the player 1 (left bar) can moove with key A and W and the player 2 can woove with the up arrow and down arrow key.
 
 
