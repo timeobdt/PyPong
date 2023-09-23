@@ -27,6 +27,9 @@ def DisplayStartMenu():
     pygame.draw.rect(screen, 'white', pygame.Rect(0,0,1280,720), 4)
     screen.blit(game_message, game_message_rect)
     screen.blit(game_name, game_name_rect)
+    credit_message = font.render('Version 1.0 github.com/timeobdt', False, (255,255,255))
+    credit_message_rect = credit_message.get_rect(center = (640, 700))
+    screen.blit(credit_message, credit_message_rect)
 
 def DisplayPause():
         game_message = font.render('Game is paused', False, (255, 255, 255))
