@@ -1,5 +1,7 @@
 from sys import exit
 
+import pygame
+
 from game_init import *
 
 pygame.init()
@@ -7,6 +9,8 @@ pygame.init()
 screenLoad()
 
 game_active = False
+game_is_pause = False
+game_color = False
 
 while True:
 
@@ -14,13 +18,20 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+
         if not game_active:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 game_active = True
 
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_F1:
+            game_color = True
+
     if game_active:
 
-        screen.fill((0, 0, 0))
+        if game_color:
+            screen.fill((55, 127, 3))
+        else:
+            screen.fill((0, 0, 0))
 
         field_creation()
 

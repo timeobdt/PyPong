@@ -27,12 +27,20 @@ def DisplayStartMenu():
     pygame.draw.rect(screen, 'white', pygame.Rect(0,0,1280,720), 4)
     screen.blit(game_message, game_message_rect)
     screen.blit(game_name, game_name_rect)
+
+def DisplayPause():
+        game_message = font.render('Game is paused', False, (255, 255, 255))
+        game_message_rect = game_message.get_rect(center=(640, 200))
+        pygame.draw.rect(screen, 'white', pygame.Rect(0, 0, 1280, 720), 4)
+        screen.blit(game_message, game_message_rect)
+
 def field_creation():
     pygame.draw.rect(screen, 'white', pygame.Rect(0, 0, 1280, 720), 4)
     pygame.draw.line(screen, 'white', (640, 0), (640, 720), 4)
     Display_score()
 
-
 font = pygame.font.Font('Assets/font/bit5x3.ttf', 40)
 clock = pygame.time.Clock()
+
+
 
