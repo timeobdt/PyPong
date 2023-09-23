@@ -16,7 +16,7 @@ class ball(pygame.sprite.Sprite):
         super().__init__()
         self.surf = pygame.Surface((50, 50))
         self.surf.fill((255, 255, 255))
-        self.image = self.surf.copy()
+        self.image = pygame.image.load("Assets/ball_image/ball.png")
         self.rect = self.image.get_rect()
         self.Xvitesse = 0
         self.Yvitesse = 0
