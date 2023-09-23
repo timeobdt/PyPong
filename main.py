@@ -126,7 +126,6 @@ def screenLoad():
     Change_Icon()
     font = pygame.font.Font('Assets/font/bit5x3.ttf', 40)
     clock = pygame.time.Clock()
-    
 
 screenLoad()
 
@@ -150,7 +149,7 @@ def DisplayStartMenu():
     pygame.draw.rect(screen, 'white', pygame.Rect(0,0,1280,720), 4)  
     screen.blit(game_message, game_message_rect)
     screen.blit(game_name, game_name_rect)
-    ball.draw(screen)
+    #ball.draw(screen)
 
 while True:
     
@@ -182,11 +181,8 @@ while True:
         player.update()
         
         pygame.display.update()
-        clock.tick(60) 
+        clock.tick(60)
 
     else:
         DisplayStartMenu()
         pygame.display.update()
-        
-        
-#pour faire attendre le jeux : pygame.time.delay(5 * 1000)
