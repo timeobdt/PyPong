@@ -41,5 +41,12 @@ class player(pygame.sprite.Sprite):
         if keys[down_key]:
             self.rect.y += 6
 
+    def player_colision(self):
+        if self.rect.y < 0:
+            self.rect.y = 0
+
+        if self.rect.y > 720 - self.rect.height:
+            self.rect.y = 720 - self.rect.height
+
     def update(self):
-        pass
+        self.player_colision()
