@@ -1,4 +1,5 @@
 from Player import *
+from random import randint
 
 pygame.init()
 
@@ -64,8 +65,11 @@ class ball(pygame.sprite.Sprite):
 
     def update(self):
         if self.Xvitesse == 0 and self.Yvitesse == 0:
-            self.Xvitesse += 5
-            self.Yvitesse += 5
-
+            if randint(0,1):
+                self.Xvitesse += 5
+                self.Yvitesse += 5
+            else:
+                self.Xvitesse -= 5
+                self.Yvitesse -= 5
         self.ball_movement()
         self.check_collision()
