@@ -8,6 +8,8 @@ player2 = player(2)
 player_group = pygame.sprite.Group()
 player_group.add(player1)
 player_group.add(player2)
+
+screen = pygame.display.set_mode((1280, 720))
 class ball(pygame.sprite.Sprite):
 
     def __init__(self):
@@ -23,7 +25,7 @@ class ball(pygame.sprite.Sprite):
         self.paddle_sound = pygame.mixer.Sound('Assets/sound/paddle.wav')
         self.score_sound = pygame.mixer.Sound('Assets/sound/score.wav')
 
-    def ball_movement(self, screen):
+    def ball_movement(self):
 
         # movement with screen border
         self.rect.x += self.Xvitesse
@@ -56,14 +58,14 @@ class ball(pygame.sprite.Sprite):
             self.score_sound.play()
 
     def check_collision(self):
-        if pygame.sprite.spritecollide(self, player, False):
+        if pygame.sprite.spritecollide(self, player_group, False):
             self.Xvitesse *= -1  # Inverse la direction horizontale de la balle
             self.paddle_sound.play()
 
-    def update(self, screen):
+    def update(self):
         if self.Xvitesse == 0 and self.Yvitesse == 0:
             self.Xvitesse += 5
             self.Yvitesse += 5
 
-        self.ball_movement(screen)
+        self.ball_movement()
         self.check_collision()
