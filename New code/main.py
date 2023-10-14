@@ -35,12 +35,14 @@ while True:
 
         if not game_active and game_paused:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                game_paused = False
                 game_active = True
+                game_paused = False
+
 
     if game_menu:
         DisplayStartMenu()
         pygame.display.update()
+
     if game_paused:
         DisplayPause()
         pygame.display.update()
