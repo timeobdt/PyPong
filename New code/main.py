@@ -1,13 +1,16 @@
 from sys import exit
 
+import pygame
+
 from game_init import *
 
 pygame.init()
 
 screenLoad()
 
+game_menu = True
 game_active = False
-game_is_pause = False
+game_paused = False
 game_color = False
 
 while True:
@@ -17,12 +20,30 @@ while True:
             pygame.quit()
             exit()
 
-        if not game_active:
+        if not game_active and game_menu:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 game_active = True
+                game_menu = False
 
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_F1:
-            game_color = True
+        if game_active:
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_F1:
+                game_color = True
+
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            game_paused = True
+            game_active = False
+
+        if not game_active and game_paused:
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                game_paused = False
+                game_active = True
+
+    if game_menu:
+        DisplayStartMenu()
+        pygame.display.update()
+    if game_paused:
+        DisplayPause()
+        pygame.display.update()
 
     if game_active:
 
@@ -46,7 +67,3 @@ while True:
 
         pygame.display.update()
         clock.tick(60)
-
-    else:
-        DisplayStartMenu()
-        pygame.display.update()

@@ -5,8 +5,10 @@ ball = ball()
 ball_group = pygame.sprite.GroupSingle()
 ball_group.add(ball)
 
-def Change_Icon():
+
+def change_icon():
     pass
+
 
 def Display_score():
     score_player1_surf = font.render(f"{player1.score:02d}", False, (255,255,255))
@@ -18,7 +20,7 @@ def Display_score():
 
 def screenLoad():
     pygame.display.set_caption('Pong')
-    Change_Icon()
+    change_icon()
 def DisplayStartMenu():
     game_name = font.render('pong', False, (255,255,255))
     game_name_rect = game_name.get_rect(center = (640,150))
@@ -37,10 +39,12 @@ def DisplayPause():
         pygame.draw.rect(screen, 'white', pygame.Rect(0, 0, 1280, 720), 4)
         screen.blit(game_message, game_message_rect)
 
+
 def field_creation():
     pygame.draw.rect(screen, 'white', pygame.Rect(0, 0, 1280, 720), 4)
     pygame.draw.line(screen, 'white', (640, 0), (640, 720), 4)
     Display_score()
+
 
 font = pygame.font.Font('Assets/font/bit5x3.ttf', 40)
 clock = pygame.time.Clock()
