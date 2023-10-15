@@ -11,7 +11,6 @@ screenLoad()
 game_menu = True
 game_active = False
 game_paused = False
-game_color = False
 
 class GameState:
 
@@ -38,7 +37,7 @@ while True:
                     (event.key == pygame.K_ESCAPE and
                      GameState.CURRENT != GameState.MENU)):
                 GameState.next()
-            elif GameState.CURRENT == GameState.RUNNING and event.key == pygame.K_F1:
+            if event.key == pygame.K_F1:
                 game_color = True
 
         """

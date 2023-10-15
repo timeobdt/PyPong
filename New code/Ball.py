@@ -40,9 +40,8 @@ class ball(pygame.sprite.Sprite):
             self.Yvitesse *= -1
             self.wall_sound.play()
 
-        if self.rect.x == screen.get_width() - self.rect.width:
-            self.rect.center = (
-            640, 360)  # teleporte the ball to the center of the screen if it goes to far on the right
+        if self.rect.x >= 1280:
+            self.rect.center = (640, 360)  # teleporte the ball to the center of the screen if it goes to far on the right
             # stop the ball when a player score
             self.Xvitesse = 0
             self.Yvitesse = 0
@@ -50,8 +49,7 @@ class ball(pygame.sprite.Sprite):
             self.score_sound.play()
 
         if self.rect.x <= 0:
-            self.rect.center = (
-            640, 360)  # teleporte the ball to the center of the screen if it goes to far on the left
+            self.rect.center = (640, 360)  # teleporte the ball to the center of the screen if it goes to far on the left
             # stop the ball when a player score
             self.Xvitesse = 0
             self.Yvitesse = 0
@@ -62,6 +60,12 @@ class ball(pygame.sprite.Sprite):
         if pygame.sprite.spritecollide(self, player_group, False):
             self.Xvitesse *= -1  # Inverse la direction horizontale de la balle
             self.paddle_sound.play()
+            #Add speed to the ball when the ball touch a player
+            if self.Xvitesse < 0:
+                self.Xvitesse += -1
+            else:
+                self.Xvitesse += 1
+
 
     def update(self):
         if self.Xvitesse == 0 and self.Yvitesse == 0:

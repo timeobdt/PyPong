@@ -1,9 +1,13 @@
 import pygame
+
 from Ball import *
+
 
 ball = ball()
 ball_group = pygame.sprite.GroupSingle()
 ball_group.add(ball)
+
+game_color = False
 
 
 def change_icon():
@@ -15,13 +19,24 @@ def Display_score():
     score_player1_rect = score_player1_surf.get_rect(topleft = (650,50))
     score_player2_surf = font.render(f"{player2.score:02d}", False, (255,255,255))
     score_player2_rect = score_player2_surf.get_rect(topright = (630,50))
+    """
+    debug stuff
+    ballspeed_surf = font.render(f"{ball.Xvitesse}", False, (255,255,255)) 
+    ballspeed_rect = ballspeed_surf.get_rect(topleft = (1000,600))
+    screen.blit(ballspeed_surf, ballspeed_rect)
+    """
     screen.blit(score_player1_surf,score_player1_rect)
     screen.blit(score_player2_surf,score_player2_rect)
+
+
 
 def screenLoad():
     pygame.display.set_caption('Pong')
     change_icon()
+
+
 def DisplayStartMenu():
+    screen.fill((0, 0, 0))
     game_name = font.render('pong', False, (255,255,255))
     game_name_rect = game_name.get_rect(center = (640,150))
     game_message = font.render('Press space to play', False, (255,255,255))
@@ -33,7 +48,9 @@ def DisplayStartMenu():
     credit_message_rect = credit_message.get_rect(center = (640, 700))
     screen.blit(credit_message, credit_message_rect)
 
+
 def DisplayPause():
+        screen.fill((0, 0, 0))
         game_message = font.render('Game is paused', False, (255, 255, 255))
         game_message_rect = game_message.get_rect(center=(640, 200))
         pygame.draw.rect(screen, 'white', pygame.Rect(0, 0, 1280, 720), 4)

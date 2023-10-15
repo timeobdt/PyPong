@@ -36,10 +36,10 @@ class player(pygame.sprite.Sprite):
         up_key, down_key = self.control_keys.get(self.number)
 
         if keys[up_key]:
-            self.rect.y -= 6
+            self.rect.y -= 8
 
         if keys[down_key]:
-            self.rect.y += 6
+            self.rect.y += 8
 
     def player_colision(self):
         if self.rect.y < 0:
